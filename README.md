@@ -10,4 +10,14 @@ There is only one contributor here, myself. That being said, I'm establishing ba
 * Don't commit dead code or dead files. 
 * Dockerize.
 
+
+# Some Gotchas
+
+The book uses a <=3.0 version of Django as a guide. I am not actually interested in this. 
+
+As a result, I am choosing to follow the book as closely as possible, except when it doesn't
+actually make sense and will result if needless tech debt. This section is for capturing gotchas,
+or other things that might come up because the book is based on an older version of Django:
+
+* BASE_DIR in settings.py (in <=3.0 this value is created as a string, in >=3.1, it is a pathlib.Path object)
  
