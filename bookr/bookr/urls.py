@@ -21,4 +21,5 @@ import reviews.views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", reviews.views.index),
+    path("reviews/error", reviews.views.index_bad_or),
 ]
