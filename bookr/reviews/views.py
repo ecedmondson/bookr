@@ -1,8 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+
 def index(request):
-    return render(request, "base.html")
+    name = request.GET.get("name") or "world"
+    return render(request, "base.html", {"name": name})
+
 
 def index_bad_or(request):
     # Breaks front end with empty string. Just becomes hello
