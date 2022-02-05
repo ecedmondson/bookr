@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF=8">
+	<title>Bookr: search results for {{ search_keyword }}</title>
+</head>
+<body>
+	<h1>Bookr: search results for <em>{{ search_keyword }}</em></h1>
+	<ul class="book-results-list">
+	{% for book in book_list %}
+	    <li>{{ book }}</li>
+    </ul>
+</body>
+</html>
