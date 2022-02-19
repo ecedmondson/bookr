@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 
 from .models import Book, Review
 from .utils import average_rating
@@ -21,6 +22,13 @@ def book_list(request):
         )
     context = {"book_list": book_list}
     return render(request, "reviews/books_list.html", context)
+
+
+def book_details(request, pkid):
+    book = get_object_or_404(Book, pk=pkid)
+    reviews = book.review_set.all()
+    book.avg = average_rating([review.rating for review in reviews])
+    return render(request, "reviews/book_details.html", {"book": book, "reviews": reviews})
 
 
 def fake_db_query_with_many(*args):
